@@ -1,0 +1,27 @@
+<div class="beer-detail-container container py-5" *ngIf="beer">
+    <h2 class="text-center mb-4 text-uppercase">Détails de la Bière</h2>
+    
+    <div class="beer-detail card shadow-lg border-light">
+        <div class="card-body">
+            <h3 class="card-title text-primary text-center mb-3">{{ beer.name }}</h3>
+            
+            <p class="card-text mb-4"><strong>Description:</strong> {{ beer.description }}</p>
+            
+            <ul class="list-unstyled">
+                <li class="d-flex align-items-center mb-3">
+                    <i class="bi bi-percent text-primary me-2"></i><strong>ABV : </strong>{{ beer.abv }}%
+                </li>
+                <li class="d-flex align-items-center mb-3">
+                    <i class="bi bi-building text-primary me-2"></i><strong>Brasserie :</strong> {{ beer.brewery_id }}
+                </li>
+                <li class="d-flex align-items-center mb-3">
+                    <i class="bi bi-tags text-primary me-2"></i><strong>Catégorie :</strong> {{ beer.category_id }}
+                </li>
+            </ul>
+        </div>
+        <div class="card-footer bg-light text-muted small">
+            <em>Créée le :</em> {{ beer.created_at | date: 'dd MMMM yyyy, HH:mm' }}<br>
+            <em>Modifiée le :</em> {{ beer.updated_at | date: 'dd MMMM yyyy, HH:mm' }}
+        </div>
+    </div>
+</div>

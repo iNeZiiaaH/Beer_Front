@@ -1,0 +1,42 @@
+.beer-detail-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.card-footer {
+    padding: 1rem;
+}
+
+.d-flex {
+    display: flex;
+    align-items: center;
+}
+
+.me-2 {
+    margin-right: 0.5rem;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-primary {
+    color: #007bff !important;
+}
+
+.card-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1.1rem;
+}
+
+ul.list-unstyled li {
+    font-size: 1rem;
+}

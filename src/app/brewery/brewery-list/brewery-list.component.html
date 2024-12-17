@@ -1,5 +1,4 @@
 <div class="d-flex justify-content-center mt-4">
-  
   <a routerLink="/breweries/add" class="btn btn-success btn-lg d-flex align-items-center">
     <i class="bi bi-plus-circle me-2"></i> Ajouter une Brasserie
   </a>
@@ -11,7 +10,7 @@
     <h2 class="text-uppercase text-primary mb-0">Liste des Brasseries</h2>
   </div>
   
-  <!--  Succès -->
+  <!-- Succès -->
   <div *ngIf="successMessage" class="alert alert-success alert-dismissible fade show" role="alert">
     <i class="bi bi-check-circle-fill"></i> {{ successMessage }}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -35,21 +34,38 @@
           </p>
         </div>
         
-        <div class="card-footer d-flex justify-content-between">
-          <a [routerLink]="['/breweries', brewery.id_brewery]" class="btn btn-sm btn-outline-primary">
-            <i class="bi bi-eye"></i> Voir Détails
-          </a>
+        <!-- Affichage des dates de création et mise à jour -->
+        <div class="card-footer text-muted small">
+          <div class="d-flex justify-content-between">
+            <small>
+              <strong>Créée le :</strong> {{ brewery.created_at | date: 'dd MMMM yyyy, HH:mm' }}
+            </small>
+            <small>
+              <strong>Modifiée le :</strong> {{ brewery.updated_at | date: 'dd MMMM yyyy, HH:mm' }}
+            </small>
+          </div>
           
-          <button class="btn btn-sm btn-danger" (click)="openDeleteModal(brewery)">
-            <i class="bi bi-trash"></i> Supprimer
-          </button>
+          <!-- Espacement entre les boutons -->
+          <div class="mt-3 d-flex justify-content-between">
+            <a [routerLink]="['/breweries', brewery.id_brewery]" class="btn btn-sm btn-outline-primary">
+              <i class="bi bi-eye"></i> Voir Détails
+            </a>
+
+            <button class="btn btn-warning btn-sm" [routerLink]="['/brewery/edit', brewery.id_brewery]">
+              Modifier
+            </button>
+            
+            <button class="btn btn-sm btn-danger" (click)="openDeleteModal(brewery)">
+              <i class="bi bi-trash"></i> Supprimer
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Modal  -->
+<!-- Modal de suppression -->
 <div id="deleteModal" class="modal fade" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
