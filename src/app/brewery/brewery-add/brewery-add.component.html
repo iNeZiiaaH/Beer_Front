@@ -1,0 +1,20 @@
+<div class="container mt-5">
+    <h2 class="mb-4 text-center text-uppercase text-primary">Ajouter une Brasserie</h2>
+    
+    <form [formGroup]="breweryForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="name" class="form-label">Nom de la Brasserie</label>
+        <input id="name" formControlName="name" class="form-control" required />
+      </div>
+  
+      <div class="mb-3">
+        <label for="country" class="form-label">Pays</label>
+        <input id="country" formControlName="country" class="form-control" required />
+      </div>
+  
+      <button type="submit" class="btn btn-success mt-3 w-100" [disabled]="breweryForm.invalid">
+        <i class="bi bi-plus-circle"></i> Ajouter
+      </button>
+    </form>
+  </div>
+  

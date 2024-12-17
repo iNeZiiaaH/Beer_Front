@@ -1,0 +1,18 @@
+.nav-link.active {
+  font-weight: bold;
+  color: #8d0000 !important; 
+  text-decoration: underline;
+}
+
+.nav-link:hover {
+  color: #f8f9fa !important; 
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-link.btn {
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.nav-link.btn:hover {
+  background-color: #0056b3; 
+}

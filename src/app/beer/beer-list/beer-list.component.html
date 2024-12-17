@@ -1,0 +1,23 @@
+<div class="beer-list-container container py-5">
+  <h2 class="text-center mb-4">Liste des Bières</h2>
+
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col" *ngFor="let beer of beers">
+      <div class="beer-card card h-100 shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title text-primary">{{ beer.name }}</h3>
+          <p class="card-text"><strong>Description:</strong> {{ beer.description }}</p>
+          <ul class="list-unstyled">
+            <li><strong>ABV:</strong> {{ beer.abv }}%</li>
+            <li><strong>Brasserie :</strong> {{ beer.brewery_id }}</li>
+            <li><strong>Catégorie :</strong> {{ beer.category_id }}</li>
+          </ul>
+        </div>
+        <div class="card-footer text-muted small">
+          <em>Créée le:</em> {{ beer.created_at | date: 'dd MMMM yyyy, HH:mm' }}<br>
+          <em>Modifiée le:</em> {{ beer.updated_at | date: 'dd MMMM yyyy, HH:mm' }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

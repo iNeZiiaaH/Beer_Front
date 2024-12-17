@@ -1,0 +1,38 @@
+<h2 class="mb-4">Ajouter une Bière</h2>
+<form [formGroup]="beerForm" (ngSubmit)="onSubmit()">
+
+  <div class="mb-3">
+    <label for="name" class="form-label">Nom de la Bière</label>
+    <input id="name" formControlName="name" class="form-control" required />
+  </div>
+
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <input id="description" formControlName="description" class="form-control" required />
+  </div>
+
+  <div class="mb-3">
+    <label for="abv" class="form-label">Pourcentage d'Alcool (ABV)</label>
+    <input id="abv" type="number" formControlName="abv" min="0" class="form-control" required />
+  </div>
+
+  <!-- Liste Déroulante des Brasseries -->
+  <div class="mb-3">
+    <label for="brewery_id" class="form-label">Brasserie</label>
+    <select id="brewery_id" formControlName="brewery_id" class="form-select" required>
+      <option value="" disabled selected>Sélectionnez une brasserie</option>
+      <option *ngFor="let brewery of breweries" [value]="brewery.id_brewery">
+        {{ brewery.name }}
+      </option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="category_id" class="form-label">Catégorie (ID)</label>
+    <input id="category_id" type="number" formControlName="category_id" min="1" class="form-control" required />
+  </div>
+
+  <button type="submit" class="btn btn-success mt-3 w-100" [disabled]="beerForm.invalid">
+    <i class="bi bi-plus-circle"></i> Ajouter
+  </button>
+</form>

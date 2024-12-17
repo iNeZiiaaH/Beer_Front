@@ -1,0 +1,35 @@
+<div class="container mt-5">
+    <button class="btn btn-outline-secondary mb-4 back-btn" (click)="goBack()">
+      <i class="bi bi-arrow-left"></i> Retour à la liste
+    </button>
+  
+    <!-- Si la brasserie est disponible -->
+    <div *ngIf="brewery" class="card brewery-card shadow-lg p-4 animate__animated animate__fadeIn">
+      <div class="card-header text-center bg-primary text-white">
+        <h2 class="card-title mb-0">{{ brewery.name }}</h2>
+      </div>
+  
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span><i class="bi bi-geo-alt-fill text-primary"></i> <strong>Emplacement :</strong></span>
+            <span>{{ brewery.country }}</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span><i class="bi bi-calendar-check-fill text-success"></i> <strong>Date de Création :</strong></span>
+            <span>{{ brewery.created_at | date: 'longDate' }}</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span><i class="bi bi-calendar-event-fill text-warning"></i> <strong>Date de Mise à Jour :</strong></span>
+            <span>{{ brewery.updated_at | date: 'longDate' }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- Si aucune brasserie n'est trouvée -->
+    <div *ngIf="!brewery" class="alert alert-danger mt-4 text-center">
+      <i class="bi bi-exclamation-triangle-fill"></i> Brasserie introuvable.
+    </div>
+  </div>
+  

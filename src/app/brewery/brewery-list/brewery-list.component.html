@@ -1,0 +1,71 @@
+<div class="d-flex justify-content-center mt-4">
+  
+  <a routerLink="/breweries/add" class="btn btn-success btn-lg d-flex align-items-center">
+    <i class="bi bi-plus-circle me-2"></i> Ajouter une Brasserie
+  </a>
+</div>
+
+<div class="container mt-5">
+  
+  <div class="d-flex justify-content-center align-items-center mb-4">
+    <h2 class="text-uppercase text-primary mb-0">Liste des Brasseries</h2>
+  </div>
+  
+  <!--  Succès -->
+  <div *ngIf="successMessage" class="alert alert-success alert-dismissible fade show" role="alert">
+    <i class="bi bi-check-circle-fill"></i> {{ successMessage }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  
+  <!-- Fail -->
+  <div *ngIf="breweries.length === 0" class="alert alert-warning text-center">
+    <i class="bi bi-info-circle-fill"></i> Aucune brasserie disponible pour le moment.
+  </div>
+  
+  <!-- Liste des Brasseries -->
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let brewery of breweries">
+      <div class="card h-100 brewery-card shadow-sm hover-card">
+        <div class="card-body">
+          <h5 class="card-title">
+            <i class="bi bi-building"></i> {{ brewery.name }}
+          </h5>
+          <p class="card-text text-muted">
+            <i class="bi bi-geo-alt-fill"></i> {{ brewery.country }}
+          </p>
+        </div>
+        
+        <div class="card-footer d-flex justify-content-between">
+          <a [routerLink]="['/breweries', brewery.id_brewery]" class="btn btn-sm btn-outline-primary">
+            <i class="bi bi-eye"></i> Voir Détails
+          </a>
+          
+          <button class="btn btn-sm btn-danger" (click)="openDeleteModal(brewery)">
+            <i class="bi bi-trash"></i> Supprimer
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal  -->
+<div id="deleteModal" class="modal fade" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title" id="deleteModalLabel">Confirmation de Suppression</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Êtes-vous sûr de vouloir supprimer <strong>{{ selectedBrewery?.name }}</strong> ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="confirmDelete()">
+          <i class="bi bi-trash"></i> Supprimer
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+h2 {
+    color: #343a40;
+    font-weight: bold;
+}
+
+.btn-success {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-success:hover {
+    transform: scale(1.05);
+}
+
+/* Effet Carte */
+.brewery-card {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.brewery-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Boutons d'Action */
+.btn-outline-primary {
+    color: #007bff !important;
+    border-color: #007bff !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: #007bff !important;
+    color: white !important;
+}
+
+.btn-danger {
+    background-color: #dc3545 !important;
+    color: white !important;
+}
+
+.btn-danger:hover {
+    opacity: 0.8;
+}
+
+/* Message de Liste Vide */
+.alert {
+    font-size: 1.2em;
+    background-color: #fff3cd !important;
+    color: #856404 !important;
+}
+
+.bi {
+    margin-right: 8px;
+}
+
+
+.modal-header.bg-danger {
+    background-color: #dc3545 !important;
+    color: white;
+}
+
+.modal-footer .btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
+
+.alert-success {
+    background-color: #28a745 !important; 
+    color: white !important;
+    font-size: 1.2rem;
+}
+
+.alert-success .btn-close {
+    color: white;
+    opacity: 0.8;
+}
+
+.alert-success .btn-close:hover {
+    opacity: 1;
+}
